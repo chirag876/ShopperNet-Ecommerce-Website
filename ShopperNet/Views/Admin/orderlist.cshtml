@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ShopperNet.Models.Orders>
+
+@{
+    ViewData["Title"] = "orderlist";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Order List</h1>
+
+@*<p>
+    <a class="btn btn-primary" asp-action="Create">Create New Order</a>
+</p>*@
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Item ID</th>
+                <th>Email</th>
+                <th>Quantity</th>
+              @*  <th>Actions</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.ItemId)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+                    @*<td>
+                        <a class="btn btn-secondary btn-sm" asp-action="Details" asp-route-id="@item.Email">Details</a>
+                        <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.Email">Edit</a>
+                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Email">Delete</a>
+                    </td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ShopperNet.Models.shippingadd>
+
+@{
+    ViewData["Title"] = "shipping";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h1>shipping</h1>
+
+<p>
+    <a asp-action="CreateAdd">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    <a href="@Url.Action("shippingaddressedit", "Cart", new{item.shipaddid})">Edit Address</a> |
+                    <a href="@Url.Action("Continue", "Cart", new{item.shipaddid})">Continue with this address</a> |
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+*@
+
+<h1 class="display-4 mb-4">Shipping Addresses</h1>
+
+<div class="d-flex justify-content-end mb-4">
+    <a class="btn btn-primary" asp-action="CreateAdd"><i class="fas fa-plus-circle mr-2"></i>Add New Address</a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Address</th>
+                <th scope="col">Preferences</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                    <td>
+                        <a class="btn btn-outline-primary btn-sm mr-2" href="@Url.Action("shippingaddressedit", "Cart", new{ item.shipaddid })"><i class="fas fa-edit"></i> Edit</a>
+                        <a class="btn btn-outline-secondary btn-sm mr-2" href="@Url.Action("Continue", "Cart", new{ item.shipaddid })"><i class="fas fa-clipboard-check"></i> Continue</a>
+                        <a class="btn btn-outline-danger btn-sm" href="#"><i class="fas fa-trash"></i> Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,175 @@
+﻿@model IEnumerable<ShopperNet.Models.Cart>
+
+@{
+    ViewData["Title"] = "shoppercart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h1>shoppercart</h1>
+
+<p>
+    <a>Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+
+}
+    </tbody>
+</table>
+<button class="btn btn-info">PlaceOrder</button>*@
+@*<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Shopper Cart</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Shopper Cart</h1>
+        <p>
+            <a>Create New</a>
+        </p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.ItemId)</th>
+                    <th>@Html.DisplayNameFor(model => model.ItemName)</th>
+                    <th>@Html.DisplayNameFor(model => model.ItemPrice)</th>
+                    <th>@Html.DisplayNameFor(model => model.Quantity)</th>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.ItemId)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ItemName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ItemPrice)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <button class="btn btn-info">Place Order</button>
+    </div>
+</body>
+</html>*@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Shopper Cart</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-mMgW29Zn7xrYzKveNvKnkRMNpN5VtKjpf5iwsNFz8F1hjKwdzZ/TlcSbrfC7hL/UW2m9jy4m3aTjT8TTRTQ2/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center; font-family: 'Montserrat', sans-serif; margin-top: 50px;"><i class="fas fa-shopping-cart"></i> Shopper Cart</h1>
+        <hr>
+        <p style="text-align: center;">
+            <a asp-action="Index" asp-controller="Item" class="btn btn-warning"><i class="fas fa-edit"></i> Add New Item</a>
+        </p>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th style="font-family: 'Montserrat', sans-serif;">ID</th>
+                    <th style="font-family: 'Montserrat', sans-serif;">Item Name</th>
+                    <th style="font-family: 'Montserrat', sans-serif;">Price</th>
+                    <th style="font-family: 'Montserrat', sans-serif;">Quantity</th>
+                    <th style="font-family: 'Montserrat', sans-serif;">Email</th>
+                    <th style="font-family: 'Montserrat', sans-serif;">Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.ItemId)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ItemName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ItemPrice)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@(item.ItemPrice * item.Quantity)</td>
+                        <td style="text-align: center;">
+                            <a asp-action="Edit" asp-route-id="@item.Id" asp-controller="Cart" class="btn btn-info"><i class="fas fa-edit"></i> Buy Now</a>
+                            @Html.ActionLink("-", "Decrease", new{item.ItemId}, new { @class = "btn btn-success" } )
+                            @Html.ActionLink("+", "Increase", new{item.ItemId}, new { @class = "btn btn-success" } )
+                            @Html.ActionLink("Remove", "Deleteproductfromcart", new{item.ItemId}, new { @class = "btn btn-danger" } )
+
+                           @* <a asp-action="Deleteproductfromcart" asp-route-id="@item.Id" class="btn btn-danger"><i class="fas fa-trash"></i> Remove</a>*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p style="text-align: center;">
+            <button class="btn btn-success"><i class="fas fa-shopping-cart"></i> Place Order</button>
+        </p>
+    </div>
+</body>
+</html>
+<style>
+    footer{
+        display:none;
+    }
+</style>
+
+
+

@@ -1,0 +1,246 @@
+﻿@model ShopperNet.Models.Items
+
+@{
+    ViewData["Title"] = "addtocart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>addtocart</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="addtocart">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ItemId" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group">
+                <label asp-for="ItemPrice" class="control-label"></label>
+                <input asp-for="ItemPrice" class="form-control" />
+                <span asp-validation-for="ItemPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="btn-group">
+                    
+                    <button type="submit" class="btn btn-primary btn-save">Add</button>
+                </div>
+                <a asp-action="Index" class="back-to-list btn btn-secondary btn-back">Items Pane</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<style>
+    input[type="submit"] {
+        background-color: #007bff;
+        border: none;
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        margin-right: 20px;
+    }
+
+    .back-to-list {
+        background-color: #fff;
+        border: 1px solid #007bff;
+        color: #007bff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        margin-left: 20px;
+        text-decoration: none;
+    }
+
+    .btn-primary {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 12px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+    .btn-save {
+        margin-right: 10px;
+    }
+
+    .btn-back {
+        margin-left: 10px;
+    }
+
+
+        .back-to-list:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+
+
+    .row {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Global styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f2f2f2;
+}
+
+    h1 {
+        font-size: 3em;
+        color: #3F3F3F;
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    h4 {
+        font-size: 1.5em;
+        color: #FFD700;
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+
+hr {
+  border-top: 1px solid #ccc;
+  margin-bottom: 30px;
+}
+
+.form-group {
+        margin-bottom: 1rem;
+}
+
+label.control-label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #333;
+}
+
+    /* Style for text boxes */
+    .form-control {
+        background-color: #f2f2f2;
+        border: none;
+        border-radius: 0;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        font-size: 16px;
+        color: #333;
+    }
+   
+
+
+    /* Center form */
+    .col-md-4 {
+        margin: 0 auto;
+        float: none !important;
+    }
+input.form-control {
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  font-size: 1.2em;
+  color: #333;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+
+
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 6px 12px;
+  font-size: 18px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.form-control:focus {
+  border-color: #66afe9;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.col-md-4 {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+
+@@media screen and (max-width: 768px) {
+  .col-md-4 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+
+
+/* Responsive styles */
+@@media (min-width: 768px) {
+  .col-md-4 {
+    width: 33.33%;
+    float: left;
+  }
+}
+
+    header {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+
+</style>

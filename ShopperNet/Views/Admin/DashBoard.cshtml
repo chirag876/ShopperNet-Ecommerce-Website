@@ -1,0 +1,109 @@
+﻿
+
+<div class="container">
+    <h1 class="text-center mb-5">Welcome to Admin Dashboard</h1>
+    <div class="alert-danger" style="text-align:center">@TempData["Alert1"]</div>
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card-deck">
+                <div class="card border-info mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">User List</h5>
+                        <p class="card-text">View and manage registered users.</p>
+                        <a href="@Url.Action("UserList", "Admin")" class="btn btn-info stretched-link">Go to User List</a>
+                    </div>
+                </div>
+                <div class="card border-info mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Product List</h5>
+                        <p class="card-text">View and manage products.</p>
+                        <a href="@Url.Action("ItemList", "Admin")" class="btn btn-info stretched-link">Go to Item List</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-deck mt-3">
+                <div class="card border-info mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Order List</h5>
+                        <p class="card-text">View and manage orders.</p>
+                        <a href="@Url.Action("OrderList", "Admin")" class="btn btn-info stretched-link">Go to Order List</a>
+                    </div>
+                </div>
+                <div class="card border-info mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Product</h5>
+                        <p class="card-text">Add a new product to the store.</p>
+                        <a href="@Url.Action("AddProduct", "Admin")" class="btn btn-info stretched-link">Add A Product</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-end mt-5">
+                <div class="col-auto">
+                    <form method="post" asp-action="Logout" asp-controller="Login">
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .card {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease-in-out;
+    }
+
+        .card:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: #007bff;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 3px;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 700;
+        transition: all 0.2s ease-in-out;
+    }
+
+        .btn:hover {
+            background-color: #0056b3;
+            cursor: pointer;
+        }
+
+    .stretched-link::after {
+        display: none !important;
+    }
+header{
+    display:none;
+}
+</style>

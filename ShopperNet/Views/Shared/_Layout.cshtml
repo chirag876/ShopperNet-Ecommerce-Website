@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ShopperNet</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ShopperNet.styles.css" asp-append-version="true" />
+</head>
+<body>
+    @{
+        TempData.Keep("User");
+    }
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ShopperNet</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">About</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        @TempData["User"]
+                    </a>
+                    
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" asp-controller="Profile" asp-action="Profile">Profile</a></li>
+                        <li>
+                            <a class="dropdown-item" href="@Url.Action("shoppercart", "Cart")">ShopperCart</a></li>
+                        
+                        <li><a class="dropdown-item" asp-controller="Login" asp-action="logout">LogOut</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container1" style="font-size:medium">
+            
+            <span>Designed By Chirag Gupta</span>
+            <a href="https://www.linkedin.com/in/chiraggupta1706/" class="fa-image"><img src="/css/linkedin.png" height="30px" width="30px" important! /></a>
+            <a href="https://www.instagram.com/chiraggupta1706/" class="fa-image"><img src="/css/instagram.png" height="30px" width="30px" important! /></a>
+            
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+<style>
+    span {
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+        margin: 7px;
+    }
+
+    footer {
+        background-color: #f7f7f7;
+        padding: 0px 0;
+        text-align: center;
+        color: #666666;
+    }
+
+    .container1 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .container1 span {
+            margin-right: 10px;
+        }
+
+    .fa-image {
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-right: 10px;
+    }
+
+        .fa-image:hover {
+            opacity: 0.7;
+        }
+
+        .fa-image img {
+            vertical-align: middle;
+        }
+
+    .container1 span {
+        font-size: 20px;
+    }
+
+    
+</style>
+

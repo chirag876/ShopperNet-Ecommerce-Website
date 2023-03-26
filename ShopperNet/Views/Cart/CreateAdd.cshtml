@@ -1,0 +1,165 @@
+﻿@model ShopperNet.Models.shippingadd
+
+@{
+    ViewData["Title"] = "CreateAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h1>CreateAdd</h1>
+<div class="alert-danger" style="text-align:center">@TempData["AddAlert"]</div>
+<h4>shippingadd</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateAdd">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+<style>
+    /* Center the alert message */
+    .alert-danger {
+        text-align: center;
+    }
+
+    /* Add some padding to the form container */
+    .form-container {
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px #ccc;
+    }
+
+    /* Style the form inputs and labels */
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 100%;
+    }
+
+    /* Style the submit button */
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+    /* Style the "Back to List" link */
+    a {
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #337ab7;
+        text-decoration: none;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .row{
+            justify-content:center;
+        }
+
+        h1{
+            font-weight:bold;
+            text-align:center;
+        }
+
+    /* Style the "Back to List" link */
+    a.back-to-list {
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #fff;
+        background-color: #337ab7;
+        border-radius: 5px;
+        padding: 10px 20px;
+        text-decoration: none;
+        text-align: center;
+    }
+
+        a.back-to-list:hover {
+            background-color: #286090;
+            color: #fff;
+            text-decoration: none;
+        }
+
+    /* Center the "Back to List" button */
+    .center {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+</style>
+
+<h1>Add New Address</h1>
+
+<div class="alert-danger">@TempData["AddAlert"]</div>
+
+
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-container">
+            <form asp-action="CreateAdd">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label">Email:</label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label">Address:</label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="center">
+    <a asp-action="shipping" class="back-to-list">Address List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
